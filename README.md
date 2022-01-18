@@ -1,2 +1,2 @@
 # solitaire-cipher
-Solitaire message encryptor and decoder
+This program encrypts messages using the Solitaire encryption algorithm.
