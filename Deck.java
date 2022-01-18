@@ -1,5 +1,3 @@
-package assignment2;
-
 import java.util.Random;
 
 public class Deck {
@@ -9,12 +7,7 @@ public class Deck {
     public int numOfCards; // contains the total number of cards in the deck
     public Card head; // contains a pointer to the card on the top of the deck
 
-    /*
-     * TODO: Initializes a Deck object using the inputs provided
-     */
     public Deck(int numOfCardsPerSuit, int numOfSuits) {
-        /**** ADD CODE HERE ****/
-
         // check for input validation
         if (numOfCardsPerSuit > 13 || numOfCardsPerSuit < 1 || numOfSuits >= suitsInOrder.length || numOfSuits <= 1) {
             throw new IllegalArgumentException();
@@ -57,12 +50,8 @@ public class Deck {
     }
 
     /*
-     * TODO: Implements a copy constructor for Deck using Card.getCopy().
-     * This method runs in O(n), where n is the number of cards in d.
-     */
-    public Deck(Deck d) {
-        /**** ADD CODE HERE ****/
 
+    public Deck(Deck d) {
         // input validation
         if (d.head == null) {
             return;
@@ -93,18 +82,10 @@ public class Deck {
         this.numOfCards = d.numOfCards;
     }
 
-    /*
-     * For testing purposes we need a default constructor.
-     */
     public Deck() {
     }
 
-    /*
-     * TODO: Adds the specified card at the bottom of the deck. This
-     * method runs in $O(1)$.
-     */
     public void addCard(Card c) {
-        /**** ADD CODE HERE ****/
         if (head == null) {
             this.head = c;
             c.prev = c;
@@ -119,14 +100,7 @@ public class Deck {
         this.numOfCards++;
     }
 
-    /*
-     * TODO: Shuffles the deck using the algorithm described in the pdf.
-     * This method runs in O(n) and uses O(n) space, where n is the total
-     * number of cards in the deck.
-     */
     public void shuffle() {
-        /**** ADD CODE HERE ****/
-
         // input validation
         if (this.head == null) {
             return;
@@ -156,14 +130,7 @@ public class Deck {
         }
     }
 
-    /*
-     * TODO: Returns a reference to the joker with the specified color in
-     * the deck. This method runs in O(n), where n is the total number of
-     * cards in the deck.
-     */
     public Joker locateJoker(String color) {
-        /**** ADD CODE HERE ****/
-
         // input validation
         if (this.head == null) {
             return null;
@@ -181,13 +148,7 @@ public class Deck {
         }
     }
 
-    /*
-     * TODO: Moved the specified Card, p positions down the deck. You can
-     * assume that the input Card does belong to the deck (hence the deck is
-     * not empty). This method runs in O(p).
-     */
     public void moveCard(Card c, int p) {
-        /**** ADD CODE HERE ****/
         // check if head is affected
         if (c == this.head) {
             this.head = this.head.next;
@@ -213,13 +174,7 @@ public class Deck {
 
     }
 
-    /*
-     * TODO: Performs a triple cut on the deck using the two input cards. You
-     * can assume that the input cards belong to the deck and the first one is
-     * nearest to the top of the deck. This method runs in O(1)
-     */
     public void tripleCut(Card firstCard, Card secondCard) {
-        /**** ADD CODE HERE ****/
         if (firstCard == null || secondCard == null) {
             return;
         }
@@ -245,13 +200,7 @@ public class Deck {
         }
     }
 
-    /*
-     * TODO: Performs a count cut on the deck. Note that if the value of the
-     * bottom card is equal to a multiple of the number of cards in the deck,
-     * then the method should not do anything. This method runs in O(n).
-     */
     public void countCut() {
-        /**** ADD CODE HERE ****/
         // input validation
         if (this.head == null) {
             return;
@@ -274,14 +223,7 @@ public class Deck {
         this.addCard(bottomCard);
     }
 
-    /*
-     * TODO: Returns the card that can be found by looking at the value of the
-     * card on the top of the deck, and counting down that many cards. If the
-     * card found is a Joker, then the method returns null, otherwise it returns
-     * the Card found. This method runs in O(n).
-     */
     public Card lookUpCard() {
-        /**** ADD CODE HERE ****/
         // input validation
         if (this.head == null) {
             return null;
@@ -298,12 +240,7 @@ public class Deck {
         }
     }
 
-    /*
-     * TODO: Uses the Solitaire algorithm to generate one value for the keystream
-     * using this deck. This method runs in O(n).
-     */
     public int generateNextKeystreamValue() {
-        /**** ADD CODE HERE ****/
         boolean isNull = true;
 
         while (isNull) {
